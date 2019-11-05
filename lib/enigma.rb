@@ -6,5 +6,9 @@ class Enigma
     { encryption: message, key: a_key, date: a_date }
   end
 
+  def random_key
+    #code goes here 
+  end
+
 
 end
