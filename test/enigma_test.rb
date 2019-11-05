@@ -1,8 +1,6 @@
-require 'minitest/autorun'
-require 'minitest/reporters'
-Minitest::Reporters.use!
 require './lib/enigma'
 require 'date'
+require './test/test_helper'
 
 class EnigmaTest < MiniTest::Test
 
