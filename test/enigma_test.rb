@@ -28,8 +28,15 @@ class EnigmaTest < MiniTest::Test
   def test_does_random_key_generate
 
     enigma = Enigma.new
-    assert_equal 5, enigma.random_key.to_s.length
-    require "pry"; binding.pry
+    expected_1 = {:encryption=>"hello world", :key=>"00044", :date=>Date.today.strftime('%m%d%y')}
+    assert_equal expected_1, enigma.encrypt("hello world", "44")
+    #write another test here for random number when no key entered
+  end
+
+  def test_does_message_decrypt
+
+    enigma = Enigma.new
+    assert enigma.decrypt("keder ohulw", "02715", "040895").is_a?(Hash)
   end
 
 end
