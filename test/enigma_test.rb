@@ -39,4 +39,25 @@ class EnigmaTest < MiniTest::Test
     assert enigma.decrypt("keder ohulw", "02715", "040895").is_a?(Hash)
   end
 
+  def test_find_keys
+
+    enigma = Enigma.new
+    expected = {A: 02, B: 27, C: 71, D: 15}
+    assert_equal expected, enigma.find_keys("02715")
+  end
+
+  def test_find_offset
+
+    enigma = Enigma.new
+    expected = {A: 1, B: 0, C: 2, D: 5}
+    assert_equal expected, enigma.find_offset("040895")
+  end
+
+  def test_keys_with_offset
+
+    enigma = Enigma.new
+    expected = {A: 03, B: 27, C: 73, D: 20}
+    assert_equal expected, enigma.keys_with_offset("02715", "040895")
+  end
+
 end
