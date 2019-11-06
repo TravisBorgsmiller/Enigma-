@@ -25,4 +25,11 @@ class EnigmaTest < MiniTest::Test
     assert_equal expected, enigma.encrypt("hello world", "02715")
   end
 
+  def test_does_random_key_generate
+
+    enigma = Enigma.new
+    assert_equal 5, enigma.random_key.to_s.length
+    require "pry"; binding.pry
+  end
+
 end
